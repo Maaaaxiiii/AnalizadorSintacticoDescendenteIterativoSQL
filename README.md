@@ -1,4 +1,4 @@
-# AnalizadorSintacticoDescendenteRecursivoSQL
+# AnalizadorSintacticoDescendenteIterativoSQL
 
 
 __Este es el repositorio de:__
