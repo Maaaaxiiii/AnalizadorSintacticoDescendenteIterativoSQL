@@ -1,4 +1,4 @@
-# AnalizadorSintacticoDescendenteIterativoSQL
+# Analizador Sintactico Descendente Iterativo SQL
 
 
 __Este es el repositorio de:__
@@ -9,6 +9,8 @@ __Este es el repositorio de:__
 - Reyes López Maximiliano
 
 - Santos Alan Eduardo
+
+__Gramatica Utilizada:__
 
 1. Q → **select** D **from** T
 2. D → **distinct** P | P
