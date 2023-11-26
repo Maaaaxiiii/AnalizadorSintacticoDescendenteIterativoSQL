@@ -39,7 +39,7 @@ class ASDI:
         diccionario_indices = {"Q": 0, "D": 1, "P": 2, "A": 3, "A1": 4, "A2": 5, "A3": 6, "T": 7, "T1": 8, "T2": 9, "T3": 10}
         return diccionario_indices.get(aux, -1)
 
-def parse(self):
+    def parse(self):
         # Inicialización de la pila
         pila = ["$", "Q"]
 
@@ -52,17 +52,14 @@ def parse(self):
                 pila.pop()
                 self.i += 1
                 self.preanalisis = self.tokens[self.i]
-                #print("entre1", pila)
 
             elif (pila[-1] in ["SELECT", "FROM", "DISTINCT", "ASTERISCO", "PUNTO", "COMA", "IDENTIFICADOR", "PUNTO", "$"]):
                 #verifica si el tope de la pila es un símbolo terminal 
                 self.hay_errores = True
-                #print("entre2", pila)
 
             elif self.tabla[self.buscar(pila[-1])][self.preanalisis.buscar()] is None:
                 #verifica si la celda correspondiente en la tabla está vacía
                 self.hay_errores = True
-                #print("entre 3",pila)
 
             elif self.tabla[self.buscar(pila[-1])][self.preanalisis.buscar()] is not None:
                 # significa que hay una regla gramatical definida en esa celda.
@@ -83,12 +80,10 @@ def parse(self):
                     # excluyendo los epsilon.
                     pila.pop()
                     pila.extend(reversed([elem for elem in produccion if elem != "e"]))
-                    #print("entre 4.1",pila)
 
                 else:
                     self.hay_errores = True
 
-            #print("al final",pila)
 
             if self.hay_errores:
                 break
